@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./myFav.ico">
+    <title>Sky Scrapper</title>
+</head>
+<body>
+
+    <div class="manoj">By Tooths-Code</div>
+    <div class="container">
+        <header>Sky Scrapper v1.0.0</header>
+
+        <form id ="myForm">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Enter Header Tokens</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>TBO</label>
+                            <input type="text" id="traceId" placeholder="Enter Access Tokens" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>TravClan</label>
+                            <input type="text" id="tcId" placeholder="Enter Access Tokens" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tripjack</label>
+                            <input type="text" id="tjId" placeholder="Enter Access Tokens" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mystifly</label>
+                            <input type="text" id="mystId" placeholder="Enter Access Tokens" >
+                        </div>
+                        <div class="input-field">
+                            <label>EMT (Not Ready)</label>
+                            <input type="text" id="emtId" placeholder="Enter Access Tokens" >
+                        </div>
+                </div>
+
+
+                <div class="details ID">
+                    <span class="title">Flight Details</span>
+
+                    <div class="fields">
+                     <div class="locations">
+                        <div class="input-fields">
+                            <label>FROM</label>
+                            <input type="text" id="origin" placeholder="Enter a Destination" >
+                        </div>
+
+                        <div class="input-fields">
+                            <label>TO</label>
+                            <input type="text" id="destination" placeholder="Enter a Destination" >
+                        </div>
+
+                     </div>
+
+                        <div class="input-field">
+                            <label>Departure Date</label>
+                            <input type="date" id="date"  placeholder="Enter your issued date" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Airline Filter (Optional)</label>
+                            <datalist id="code-list" data-src="codes.txt"></datalist>
+                            <select id="filter" >
+                                <option value ="" selected>Choose an Airline</option>
+                                <option>Indigo</option>
+                                <option>Vistara</option>
+                                <option>Spicejet</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="sumbit" type="submit" id="runCode">
+                        <span class="submit">Run Scrapper</span>
+                    </button>
+                </div> 
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
