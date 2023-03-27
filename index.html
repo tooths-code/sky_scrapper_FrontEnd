@@ -13,7 +13,7 @@
 
     <div class="manoj">By Tooths-Code</div>
     <div class="container">
-        <header>Sky Scrapper v1.0.0</header>
+        <header>Sky Scrapper v1.0.1</header>
 
         <form id ="myForm">
             <div class="form first">
@@ -68,7 +68,7 @@
 
                         <div class="input-field">
                             <label>Airline Filter (Optional)</label>
-                            <datalist id="code-list" data-src="codes.txt"></datalist>
+                            
                             <select id="filter" >
                                 <option value ="" selected>Choose an Airline</option>
                                 <option>Indigo</option>
@@ -76,7 +76,17 @@
                                 <option>Spicejet</option>
                             </select>
                         </div>
+                        <div class="input-field">
+                            <label>Environment*</label>
+                            
+                            <select id="environment">
+                                <option>Production</option>
+                                <option>Staging</option>
+                                
+                            </select>
+                        </div>
                     </div>
+                   
 
                     <button class="sumbit" type="submit" id="runCode">
                         <span class="submit">Run Scrapper</span>
