@@ -1,90 +1,88 @@
 window.onload = function() {
-    $('#myForm').submit(function(event) {
-      event.preventDefault();
-     
+  $('#myForm').submit(function(event) {
+    event.preventDefault();
 
-
-       var loader = document.createElement('div');
+    var loader = document.createElement('div');
     loader.classList.add('loader');
     document.body.appendChild(loader);
-      
-    setTimeout(function() {loader.classList.remove('complete');
-      loader.classList.add('loading');},100)
-      
 
-      var formData = {
-        traceId: $('#traceId').val(),
-        tcId: $('#tcId').val(),
-        tjId: $('#tjId').val(),
-        mystId: $('#mystId').val(),
-        airlineFilter: $('#filter').val(),
-        origin: $('#origin').val(),
-        destination: $('#destination').val(),
-        date: $('#date').val(),
-      };
+    setTimeout(function() {
+      loader.classList.remove('complete');
+      loader.classList.add('loading');
+    }, 100)
 
-      var apiRequests = [];
+    var formData = {
+      traceId: $('#traceId').val(),
+      tcId: $('#tcId').val(),
+      tjId: $('#tjId').val(),
+      mystId: $('#mystId').val(),
+      airlineFilter: $('#filter').val(),
+      origin: $('#origin').val(),
+      destination: $('#destination').val(),
+      date: $('#date').val(),
+    };
 
+    var apiRequests = [];
+
+    if (formData.traceId) {
       apiRequests.push(
         $.get('http://localhost:3000/run-katran', formData)
           .fail(function() {
-          
-          alert('Failed to Scrape TBO API');
-          
-          loader.classList.add('complete');
-          setTimeout(function() {
-            loader.remove();
-          }, 500);
-          
+            alert('Failed to Scrape TBO API');
+            loader.classList.add('complete');
+            setTimeout(function() {
+              loader.remove();
+            }, 500);
           })
       );
+    }
+
+    if (formData.tcId) {
       apiRequests.push(
-        $.get('http://localhost:3000/run-tc',formData)
+        $.get('http://localhost:3000/run-tc', formData)
           .fail(function() {
             alert('Failed to Scrape TravClan API');
-            
             loader.classList.add('complete');
             setTimeout(function() {
               loader.remove();
             }, 500);
           })
       );
+    }
+
+    if (formData.tjId) {
       apiRequests.push(
-        $.get('http://localhost:3000/run-tripjack',formData)
+        $.get('http://localhost:3000/run-tripjack', formData)
           .fail(function() {
             alert('Failed to Scrape TripJack API');
-            
             loader.classList.add('complete');
             setTimeout(function() {
               loader.remove();
             }, 500);
           })
       );
+    }
 
+    if (formData.mystId) {
       apiRequests.push(
-        $.get('http://localhost:3000/run-mystifly',formData)
+        $.get('http://localhost:3000/run-mystifly', formData)
           .fail(function() {
             loader.classList.add('complete');
-            alert('Failed to Scrape TripJack API');
-            
+            alert('Failed to Scrape Mystifly API');
             setTimeout(function() {
               loader.remove();
             }, 500);
-            
           })
       );
+    }
 
-
-      Promise.all(apiRequests).then(function() {
-        loader.classList.remove('loading');
-        loader.classList.add('complete');
-        
-        setTimeout(function() {
-          alert('Successfully Scrapped!!!');
-          loader.remove();
-        }, 1000);
-        
-        
-      });
+    Promise.all(apiRequests).then(function() {
+      loader.classList.remove('loading');
+      loader.classList.add('complete');
+      setTimeout(function() {
+        alert('Successfully Scrapped!!!');
+        loader.remove();
+      }, 1000);
     });
-  };
+  });
+};
