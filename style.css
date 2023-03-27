@@ -1,4 +1,4 @@
-/* ===== Google Font Import - Poppins ===== */
+
 @import url('https://fonts.googleapis.com/css2?family=Open Sans:wght@200;300;400;500;600&display=swap');
 *{
     margin: 0;
@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
+
+
+  
 
 .manoj {
     position: fixed;
@@ -87,7 +90,7 @@ body{
 .container form{
     position: relative;
     margin-top: 16px;
-    min-height: 500px;
+    min-height: 520px;
     background-color: #fff;
     overflow: hidden;
 }
@@ -96,21 +99,7 @@ body{
     background-color: #fff;
     transition: 0.3s ease;
 }
-.container form .form.second{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(100%);
-}
-form.secActive .form.second{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-}
-form.secActive .form.first{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-100%);
-}
+
 .container form .title{
     display: block;
     margin-bottom: 8px;
@@ -137,7 +126,7 @@ form.secActive .form.first{
     gap:10px;
 }
 
-form input{
+form input:not(.check){
     width: 100%;
     outline: none;
     font-size: 14px;
