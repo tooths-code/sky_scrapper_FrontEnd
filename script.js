@@ -1,4 +1,44 @@
 window.onload = function() {
+  //Test
+  // Check if the browser supports notifications
+if (!("Notification" in window)) {
+  console.log("This browser does not support notifications.");
+} else {
+  // Function to request permission and show the notification
+  function showNotification(title, options) {
+    if (Notification.permission === "granted") {
+      const notification = new Notification(title, options);
+
+      // Optional: Handle click event on the notification
+      notification.onclick = () => {
+        // Do something when the user clicks the notification
+        console.log("Notification clicked.");
+      };
+    }
+  }
+
+  // Request permission if not granted already
+  if (Notification.permission !== "granted") {
+    Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        showNotification("Hello, World!", {
+          body: "This is a notification example.",
+          icon: "path/to/icon.png", // Optional: Path to the notification icon
+        });
+      } else {
+        console.log("Permission for notifications denied.");
+      }
+    });
+  } else {
+    // If permission already granted, directly show the notification
+    showNotification("Hello, World!", {
+      body: "This is a notification Test Message"
+    });
+  }
+}
+
+
+  //test
   $('#myForm').submit(function(event) {
     event.preventDefault();
 
